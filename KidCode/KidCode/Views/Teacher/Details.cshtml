@@ -1,0 +1,57 @@
+﻿@model KidCode.Models.Teacher
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<br />
+<div>
+
+    <h4>Profesor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+           
+        </dt>
+        <h3>
+        <dd>
+            @ViewBag.Teacher.TeacherLastName  @ViewBag.Teacher.TeacherFirstName
+        </dd>
+            </h3>
+        <dt> Scoala: </dt>
+        <dd>
+            @ViewBag.School.SchoolName
+        </dd>
+        <dt>
+            Lista elevi :
+        </dt>
+        <dd>
+            @foreach (var student in ViewBag.Students)
+            {<p>@student.StudentFirstName</p>
+            <p>@student.StudentLastName</p>
+            <br />
+        }
+        </dd>
+
+
+
+    </dl>
+</div>
+<br />
+<br />
+<a class="btn btn-sm btn-info" href="/Teacher/Edit/@Model.TeacherId">
+    Modifica profesor
+</a>
+<br />
+
+<form method="post" action="/Teacher/Delete/@Model.TeacherId">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-sm btn-danger" type="submit">Sterge profesor</button>
+</form>
+
+<p>
+
+    @Html.ActionLink("Inapoi la lista", "Index")
+</p>
+

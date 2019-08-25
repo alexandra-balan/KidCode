@@ -1,0 +1,29 @@
+﻿@model KidCode.Models.Teacher
+@{
+    ViewBag.Titlu = "Creare profesor";
+}
+
+<h2>@ViewBag.Titlu</h2>
+<form method="post" action="/Teacher/Create">
+    @Html.HiddenFor(m => m.UserId)
+
+  <!--  @Html.ValidationSummary(false, "", new { @class = "text-danger" }) -->
+    @Html.Label("TeacherFirstName", "Prenume")
+    <br />
+    @Html.TextBox("TeacherFirstName", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.TeacherFirstName,null, new { @class = "text-danger " })
+    <br /><br />
+
+    @Html.Label("TeacherLastName", "Nume")
+    <br />
+    @Html.TextBox("TeacherLastName", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.TeacherLastName, null, new { @class = "text-danger " })
+    <br /><br />
+
+
+
+    <label>Selectati scoala</label>
+    @Html.DropDownListFor(m => m.SchoolId, new SelectList(Model.Schools, "Value", "Text"), "Selectati scoala", new { @class = "form-control" })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Adauga profesor</button>
+</form>

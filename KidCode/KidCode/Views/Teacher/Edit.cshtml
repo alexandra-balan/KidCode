@@ -1,0 +1,26 @@
+﻿@model KidCode.Models.Teacher
+
+
+<h2>Editare profesor</h2>
+<form method="post" action="/Teacher/Edit/@ViewBag.Teacher.TeacherId">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" }) 
+    @Html.HiddenFor(m => m.TeacherId)
+    <br />
+    @Html.Label("TeacherFistName", "Nume")
+    <br />
+    @Html.EditorFor(m => m.TeacherFirstName)
+    @Html.ValidationMessageFor(model => model.TeacherFirstName, null, new { @class = "text-danger " })
+    <br /><br />
+    @Html.Label("TeacherLastName", "Prenume")
+    <br />
+    @Html.EditorFor(m => m.TeacherLastName)
+    @Html.ValidationMessageFor(model => model.TeacherLastName, null, new { @class = "text-danger " })
+    <br /><br />
+   
+    <label>Selectati scoala</label>
+    @Html.DropDownListFor(m => m.SchoolId, new SelectList(Model.Schools, "Value", "Text"), "Selectati scoala", new { @class = "form-control" })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Modifica profesor</button>
+</form>
+

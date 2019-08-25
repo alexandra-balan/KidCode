@@ -1,0 +1,26 @@
+﻿@model KidCode.Models.Student
+
+
+<h2>Editare elev</h2>
+<form method="post" action="/Student/Edit/@ViewBag.Student.StudentId">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.StudentId)
+    <br />
+    @Html.Label("StudentFistName", "Nume" )
+    <br />
+    @Html.EditorFor(m => m.StudentFirstName, new { @width = "500" })
+    @Html.ValidationMessageFor(model => model.StudentFirstName, null, new { @class = "text-danger " })
+    <br /><br />
+    @Html.Label("StudentLastName", "Prenume")
+    <br />
+    @Html.EditorFor(m => m.StudentLastName)
+    @Html.ValidationMessageFor(model => model.StudentLastName, null, new { @class = "text-danger " })
+    <br /><br />
+
+    <label>Selectati profesorul</label>
+    @Html.DropDownListFor(m => m.TeacherId, new SelectList(Model.Teachers, "Value", "Text"), "Selectati profesorul", new { @class = "form-control" })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Modifica elevul</button>
+</form>
+

@@ -1,0 +1,58 @@
+﻿@model KidCode.Models.TextSolution
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <h4>Problema</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Nume elev:
+        </dt>
+        <dd>
+            @ViewBag.Student.StudentLastName  @ViewBag.Student.StudentFirstName
+        </dd>
+
+        <dt>
+            Enunt:
+        </dt>
+        <dd>
+            @ViewBag.Challenge.Question
+        </dd>
+
+        <dt>
+            Punctaj maxim:
+        </dt>
+        <dd>
+            @ViewBag.Challenge.ChallengeScore
+        </dd>
+        <dt>
+            Solutie:
+        </dt>
+        <dd>
+            @ViewBag.Solution.StudentAnswer
+        </dd>
+
+        <a class="btn btn-sm btn-info" href="/TextSolution/Edit/@Model.SolutionId">
+
+            Modifica solutia
+        </a>
+        <br />
+
+        <form method="post" action="/TextSolution/Delete/@Model.SolutionId">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button class="btn btn-sm btn-danger" type="submit">Sterge solutia</button>
+        </form>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

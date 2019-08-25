@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Afisare profesori";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData.ContainsKey("message"))
+{
+    <h3 class="alert alert-info" role="alert">@ViewBag.message</h3>
+}
+
+<br />
+@foreach (KidCode.Models.Teacher teacher in ViewBag.Teachers)
+{
+    @Html.Partial("TeacherInfo", teacher);
+
+}
+
+<a class="btn btn-sm btn-success" href="/Teacher/Create">Adauga un profesor</a>
+<br />
+
+

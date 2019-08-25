@@ -1,0 +1,25 @@
+﻿@model KidCode.Models.TextSolution
+@{
+    ViewBag.Title = "Adaugati o solutie";
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+<h1>Titlu</h1>
+<form method="post" action="/TextSolution/Create">
+
+    @Html.HiddenFor(m => m.ChallengeId)
+    @Html.HiddenFor(m => m.StudentId)
+
+    @Html.Label("StudentAnswer", "Solutie")
+    <br />
+    @Html.TextBox("StudentAnswer", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.StudentAnswer, "Camp necompletat", new { @class = "text-danger " })
+    <br /><br />
+
+
+
+
+
+
+    <button class="btn btn-sm btn-success" type="submit">Adauga solutia</button>
+</form>

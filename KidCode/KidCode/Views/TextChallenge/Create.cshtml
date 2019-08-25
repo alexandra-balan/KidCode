@@ -1,0 +1,33 @@
+﻿@model KidCode.Models.TextChallenge
+@{
+    ViewBag.Titlu = "Creare problema";
+}
+
+<h2>@ViewBag.Titlu</h2>
+<form method="post" action="/TextChallenge/Create">
+
+
+
+   
+    <br />
+   
+    @Html.Label("Question", "Enuntul problemei")
+    <br />
+    @Html.TextArea("Question", null, new {@rows = "15", @cols="150", @class = "form-control" })
+    <br />
+    @Html.ValidationMessageFor(model => model.Question, null, new { @class = "text-danger " })
+
+    <br />
+    <br />
+
+    @Html.Label("ChallengeScore", "Punctaj maxim")
+    <br />
+    @Html.TextBox("ChallengeScore", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ChallengeScore, null, new { @class = "text-danger " })
+    <br /><br />
+
+
+
+
+    <button class="btn btn-sm btn-success" type="submit">Adauga problema</button>
+</form>

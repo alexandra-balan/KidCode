@@ -1,0 +1,22 @@
+﻿@model KidCode.Models.TextChallenge
+
+
+<h2>Editare problema</h2>
+<form method="post" action="/TextChallenge/Edit/@ViewBag.Challenge.ChallengeId">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+  
+    @Html.Label("Question", "Enunt")
+    <br />
+    @Html.EditorFor(m => m.Question)
+    @Html.ValidationMessageFor(model => model.Question, "Prenumele este obligatoriu", new { @class = "text-danger " })
+    <br /><br />
+    @Html.Label("ChallengeScore", "Punctaj")
+    <br />
+    @Html.EditorFor(m => m.ChallengeScore)
+    @Html.ValidationMessageFor(model => model.ChallengeScore, "Numele este obligatoriu", new { @class = "text-danger " })
+    <br /><br />
+
+    
+    <button class="btn btn-sm btn-success" type="submit">Modifica problema</button>
+</form>
+

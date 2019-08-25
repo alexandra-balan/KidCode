@@ -1,0 +1,65 @@
+﻿@model KidCode.Models.TextChallenge
+@{
+    ViewBag.Title = "Detalii";
+}
+
+<h2>Detalii</h2>
+
+<div>
+
+    <h4>Problema</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Enunt:
+        </dt>
+        <dd>
+            @ViewBag.Challenge.Question
+        </dd>
+
+        <br />
+        <dt>
+            Profesorul care a propus aceasta problema :
+        </dt>
+        <dd>
+            @ViewBag.Teacher.TeacherLastName  @ViewBag.Teacher.TeacherFirstName
+        </dd>
+
+        <br />
+        <dt>
+            Punctajul maxim ce poate fi obtinut:
+        </dt>
+        <dd>
+            @ViewBag.Challenge.ChallengeScore
+        </dd>
+
+
+
+         <a class="btn btn-sm btn-info" href="/TextSolution/Create/@Model.ChallengeId">
+
+         Adauga solutie
+     </a>
+     <br />
+        
+
+
+
+    </dl>
+</div>
+<br /> <br />
+<form method="post" action="/TextChallenge/Delete/@Model.ChallengeId">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-sm btn-danger" type="submit">Sterge problema</button>
+</form>
+<br />
+<a class="btn btn-sm btn-info" href="/TextChallenge/Edit/@Model.ChallengeId">
+
+    Modifica problema
+</a>
+<br />
+<p>
+
+    @Html.ActionLink("Inapoi la lista", "Index")
+</p>
+

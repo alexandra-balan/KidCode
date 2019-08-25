@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Afisare elevi";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData.ContainsKey("message"))
+{
+    <h3 class="alert alert-info" role="alert">@ViewBag.message</h3>
+}
+<br />
+
+@foreach (KidCode.Models.Student student in ViewBag.Students)
+{
+    @Html.Partial("StudentInfo", student);
+
+}
+<br />
+<a class="btn btn-sm btn-success" href="/Student/Create">Adauga un elev</a>
+<br />
+
+

@@ -1,0 +1,25 @@
+﻿@model KidCode.Models.School
+@{
+    ViewBag.Title = "School List";
+}
+
+<h2>Scoli si licee</h2>
+<br />
+<table class="table table-hover">
+  
+    @foreach(var item in ViewBag.Schools)
+    {
+    <tr class="table-active">
+        <td width="50%">
+            <p class="mb-0">@item.SchoolName</p>
+        </td>
+        <td>
+            <a class="btn btn-sm btn-success" href="/School/Details/@item.SchoolId">Vezi detalii</a>
+
+        </td>
+    </tr>
+    }
+
+</table>
+
+

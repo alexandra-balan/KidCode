@@ -1,0 +1,60 @@
+﻿@model KidCode.Models.Student
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <h4>Elev</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <h3>
+            <dt>
+                Nume :
+            </dt>
+            <dd>
+                @ViewBag.Student.StudentLastName  @ViewBag.Student.StudentFirstName
+            </dd>
+        </h3>
+        <br />
+        <h2>
+        <dt> Scoala: </dt>
+        <dd>
+            @ViewBag.School.SchoolName
+        </dd>
+        
+        <dt>
+            Profesor:
+        </dt>
+        <dd>
+            @ViewBag.Teacher.TeacherLastName @ViewBag.Teacher.TeacherFirstName
+        </dd>
+        
+        <dt>
+            Scor:
+        </dt>
+        <dd>
+            @ViewBag.Student.Score
+        </dd>
+       </h2>
+
+
+    </dl>
+</div>
+<br />
+<a class="btn btn-sm btn-info btn-primary" href="/Student/Edit/@Model.StudentId">
+    Modifica elev
+</a>
+<br />
+
+<form method="post" action="/Student/Delete/@Model.StudentId">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-sm btn-danger btn-primary" type="submit">Sterge elev</button>
+</form>
+<p>
+
+    @Html.ActionLink("Inapoi la lista", "Index")
+</p>
+

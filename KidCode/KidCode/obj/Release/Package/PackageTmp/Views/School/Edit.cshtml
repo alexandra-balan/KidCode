@@ -1,0 +1,20 @@
+﻿@model KidCode.Models.School
+@{
+    ViewBag.Title = "Editare scoala";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form method="post" action="/School/Edit/@ViewBag.School.SchoolId">
+    @Html.AntiForgeryToken()
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <br />
+    @Html.Label("SchoolName", "Denumire scoala")
+    <br />
+
+    @Html.EditorFor(m => m.SchoolName)
+    @Html.ValidationMessageFor(model => model.SchoolName, null, new { @class = "text-danger " })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Modifica aceasta scoala</button>
+</form>
+

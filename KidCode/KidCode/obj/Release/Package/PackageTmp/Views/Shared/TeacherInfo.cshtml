@@ -1,0 +1,37 @@
+﻿<!--
+<div class="panel panel-default">
+    <div class="panel-heading">@Model.TeacherFirstName</div>
+    <div class="panel-body">
+        Continut articol: <strong>@Model.TeacherLastName</strong>
+        <br />
+
+        <br />
+        <i class="glyphicon glyphicon-globe"></i> @Model.School.SchoolName
+        <br />
+
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-sm btn-success" href="/Teacher/Details/@Model.TeacherId">Afisare profesor</a>
+    </div>
+</div>
+
+    -->
+
+
+<table class="table table-hover">
+    <tbody>
+        <tr class="table-active">
+            <td width="40%">
+                <p class="mb-0"> <strong>@Model.TeacherFirstName @Model.TeacherLastName</strong></p>
+            </td>
+            <td width="25%">
+                <div class="glyphicon glyphicon-globe">Scoala: @Model.School.SchoolName</div>
+            </td>
+            <td>
+                <a class="btn btn-sm btn-success" href="/Teacher/Details/@Model.TeacherId">Vezi detalii</a>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br />

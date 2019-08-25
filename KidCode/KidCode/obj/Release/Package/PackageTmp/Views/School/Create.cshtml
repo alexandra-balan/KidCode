@@ -1,0 +1,18 @@
+﻿@model KidCode.Models.School
+@{
+    ViewBag.Title = "Adaugati o scoala";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<br />
+<br />
+<form method="post" action="/School/Create">
+    <label>Nume scoala</label>
+    <input type="text" name="SchoolName" />
+    <br />
+    <br />
+
+    <button type="submit">Adauga scoala!</button>
+</form>

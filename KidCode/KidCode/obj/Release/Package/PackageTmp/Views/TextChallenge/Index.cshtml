@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Afisare probleme";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData.ContainsKey("message"))
+{
+    <h3 class="alert alert-info" role="alert">@ViewBag.message</h3>
+}
+
+<br />
+@foreach (KidCode.Models.TextChallenge tc in ViewBag.Challenges)
+{
+    @Html.Partial("TChallengeInfo", tc);
+
+}
+
+<a class="btn btn-sm btn-success" href="/TextChallenge/Create">Adauga o problema</a>
+<br />
+
+
